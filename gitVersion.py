@@ -16,9 +16,7 @@ def getVersionID():
     return '0.0.1'
 
 def getFullVersionID():
-    with open("PhantomConfig/phantomakeConfig_project.json", "r") as conf:
-        data = json.loads(conf.read())
-        return data['presets']['project']['version'] + '.' + getCommitCount()
+    return getVersionID() + '.' + getCommitCount()
 
 def getBranchName():
     result = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD'])
